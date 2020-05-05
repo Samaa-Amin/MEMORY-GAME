@@ -1,13 +1,53 @@
 body{
-    background-color: #333333;
+    background-color: #739cc5;
+    padding-top: 20px;
 }
-.game{
-    display: flex;
-    justify-content: center;
-    width:55%;
-    margin: 0 auto;
-    flex-flow: row wrap;
+button{
+    border: 4px solid #fff;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 24px;
+    background: none;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.congrats{
+    color: yellow;
+    text-transform: uppercase;
+    font-size: 35px;
+    text-align: center;
+    scale: 0;
+    opacity: 0;
+    transition: all 2s ease-in-out;
+    max-width: 100%;
+    margin-top: 80px;
     
+
+}
+.appear{
+    scale: 1.5;
+    opacity: 1;
+    /* transform: rotate(360deg); */
+    transform: translatey(-50px) 
+
+}
+.counter{
+    background-color: white;
+    padding:10px 20px;
+    text-align: center;
+    color: #b71414;
+    font-weight: bolder;
+    border-radius: 30px;
+
+}
+.counter h3{
+    font-size: 30px;
+    display: inline-block;
+
+}
+.counter p{
+    font-weight: 400;
+    display: inline-block;
 }
 .card{
     background-color: white;
@@ -35,14 +75,9 @@ body{
 
 .card .back{
     backface-visibility: hidden;
-    /* transform: rotateY(180deg); */
-    /* z-index: 2; */
-
 }
 .card .front{
     backface-visibility: hidden;
-    /* transform: rotateY(180deg); */
-    /* z-index: 1; */
 }
 .flip{
     transform: rotateY(180deg);

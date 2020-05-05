@@ -1,11 +1,35 @@
+var started = false;
+var start=document.getElementsByClassName("start")[0];
 
-(function startgame(){
+start.addEventListener("click",startFun)
+// start and reset buttons
+function startFun(){
+    if(started == false){
+        started = true;
+        start.innerHTML="game started"
+        start.style.color="#6eff6e"
+        console.log(started)
+        startgame();
+    }
+}
+
+function startgame(){
 // variables
 var card = document.getElementsByClassName("card");
 var cards = Array.from(card);
 var hasflipedcard=false;
 var firstcard , secondcard;
 var lock = false;
+var cardsRemoved=0;
+var msg=document.getElementsByClassName("congrats")[0];
+var seconds=document.getElementsByClassName("seconds")[0];
+var counter = 0;
+
+// start timer
+var interval=setInterval(() => {
+    counter++;
+    seconds.innerHTML=counter;
+}, 1000);
 
 // shuffle cards
 cards.forEach(function(item){
@@ -50,6 +74,12 @@ function removecard(firstCard,secondCard){
         secondCard.style.visibility="hidden"
     },400)
     console.log("card removed")
+    cardsRemoved++;
+    if(cardsRemoved==6){
+        started = false;
+        clearInterval(interval);
+        msg.classList.add("appear")
+    }
 }
 
 // unflip unmatched cards
@@ -62,8 +92,4 @@ function unflipcard(){
     },1000)
     console.log("unflip card")
 }
-
-})();
-
-
-
+}
